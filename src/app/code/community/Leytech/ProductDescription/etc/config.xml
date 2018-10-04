@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package    Leytech_ProductDescription
+ * @author     Chris Nolan (chris@leytech.co.uk)
+ * @copyright  Copyright (c) 2018 Leytech
+ * @license    https://opensource.org/licenses/MIT  The MIT License  (MIT)
+ */
+-->
+<config>
+    <modules>
+        <Leytech_ProductDescription>
+            <version>1.0.1</version>
+        </Leytech_ProductDescription>
+    </modules>
+    <global>
+        <blocks>
+            <leytech_product_description>
+                <class>Leytech_ProductDescription_Block</class>
+            </leytech_product_description>
+        </blocks>
+        <models>
+            <leytech_product_description>
+                <class>Leytech_ProductDescription_Model</class>
+            </leytech_product_description>
+        </models>
+        <helpers>
+            <leytech_product_description>
+                <class>Leytech_ProductDescription_Helper</class>
+            </leytech_product_description>
+        </helpers>
+        <resources>
+            <leytech_product_description_setup>
+                <setup>
+                    <module>Leytech_ProductDescription</module>
+                    <class>Leytech_ProductDescription_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </leytech_product_description_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_catalog_product_form_prepare_excluded_field_list>
+                <observers>
+                    <leytech_product_description>
+                        <class>leytech_product_description/observer</class>
+                        <method>updateExcludedFieldList</method>
+                    </leytech_product_description>
+                </observers>
+            </adminhtml_catalog_product_form_prepare_excluded_field_list>
+        </events>
+    </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <leytech_product_description>
+                    <file>leytech/product_description.xml</file>
+                </leytech_product_description>
+            </updates>
+        </layout>
+    </frontend>
+</config>

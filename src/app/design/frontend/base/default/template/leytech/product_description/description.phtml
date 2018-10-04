@@ -1,0 +1,57 @@
+<?php
+/**
+ * @package    Leytech_ProductDescription
+ * @author     Chris Nolan (chris@leytech.co.uk)
+ * @copyright  Copyright (c) 2018 Leytech
+ * @license    https://opensource.org/licenses/MIT  The MIT License  (MIT)
+ */
+?>
+<?php
+$_helper = $this->helper('catalog/output');
+$_product = $this->getProduct();
+$rows = $this->getProductDescriptionRows(array());
+?>
+<?php if (!empty($rows)) : ?>
+    <div class="lt-prod-desc">
+        <?php foreach($rows as $row) : ?>
+            <?php $backgroundColour = (!empty($row['background_colour']['value']) ? strtolower($row['background_colour']['value']) : "transparent"); ?>
+            <?php $imageMobileView = (!empty($row['image_mobile_view']['value']) ? "lt-prod-img-" . strtolower($row['image_mobile_view']['value']) : "lt-prod-img-crop"); ?>
+            <div class="lt-prod-desc-row <?php echo $imageMobileView; ?>" style="background-color: <?php echo $backgroundColour; ?>">
+                <?php if(!empty($row['title']['value']) && !empty($row['subtitle']['value'])) : ?>
+            <?php $textPosition = (!empty($row['text_position']['value']) ? "lt-prod-normal-" . strtolower(str_replace(" ", "-", $row['text_position']['value'])) : "lt-prod-normal-top"); ?>
+            <?php $textPositionMobile = (!empty($row['text_position_mob']['value']) ? "lt-prod-mobile-" . strtolower(str_replace(" ", "-", $row['text_position_mob']['value'])) : "lt-prod-mobile-overlay"); ?>
+            <?php $textBgColor = (!empty($row['text_bg_colour']['value']) ? strtolower($row['text_bg_colour']['value']) : "transparent"); ?>
+            <?php $textColor = (!empty($row['text_colour']['value']) ? strtolower($row['text_colour']['value']) : "rgb(19, 19, 19)"); ?>
+                <div class="lt-prod-text <?php echo $textPosition; ?> <?php echo $textPositionMobile; ?>">
+                    <?php endif; ?>
+                    <?php if(!empty($row['title']['value'])) : ?>
+                        <p class="lt-prod-title" style="background-color: <?php echo $textBgColor; ?>; color: <?php echo $textColor; ?>"><?php echo $row['title']['value']; ?></p>
+                    <?php endif; ?>
+                    <?php if(!empty($row['subtitle']['value'])) : ?>
+                        <p class="lt-prod-subtitle <?php echo ($row['subtitle_mobile']['value'] == 'Hidden' ? 'lt-prod-mobile-hide' : '') ?>" style="background-color: <?php echo $textBgColor; ?>; color: <?php echo $textColor; ?>"><?php echo $row['subtitle']['value']; ?></p>
+                    <?php endif; ?>
+                    <?php if(!empty($row['title']['value']) && !empty($row['subtitle']['value'])) : ?>
+                </div>
+            <?php endif; ?>
+                <?php if(empty($row['image2']['value'])) : ?>
+                    <?php $backgroundPosition = (!empty($row['image_bg_position']['value']) ? strtolower($row['image_bg_position']['value']) : "center center"); ?>
+                    <div class="lt-prod-img" style="background-image:url('<?php echo $this->escapeUrl(Mage::getBaseUrl('media') . 'catalog/product' . $row['image']['value']); ?>'); background-position: <?php echo $backgroundPosition; ?>;" title="<?php echo $row['title']['value']; ?>">
+                    </div>
+                <?php else: ?>
+                    <div class="lt-prod-2-img">
+                        <img src="<?php echo $this->escapeUrl(Mage::getBaseUrl('media') . 'catalog/product' . $row['image2']['value']); ?>" alt="<?php echo $row['title']['value']; ?>" title="<?php echo $row['title']['value']; ?>"/>
+                        <img src="<?php echo $this->escapeUrl(Mage::getBaseUrl('media') . 'catalog/product' . $row['image']['value']); ?>" alt="<?php echo $row['title']['value']; ?>" title="<?php echo $row['title']['value']; ?>"/>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <?php $_description = $this->getProduct()->getDescription(); ?>
+    <?php if ($_description): ?>
+        <h2><?php echo $this->__('Details') ?></h2>
+        <div class="std">
+            <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_description, 'description') ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

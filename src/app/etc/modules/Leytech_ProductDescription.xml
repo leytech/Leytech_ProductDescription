@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package    Leytech_ProductDescription
+ * @author     Chris Nolan (chris@leytech.co.uk)
+ * @copyright  Copyright (c) 2018 Leytech
+ * @license    https://opensource.org/licenses/MIT  The MIT License  (MIT)
+ */
+-->
+<config>
+    <modules>
+        <Leytech_ProductDescription>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Leytech_ColorAttribute />
+                <Jvs_FileAttribute />
+            </depends>
+        </Leytech_ProductDescription>
+    </modules>
+</config>

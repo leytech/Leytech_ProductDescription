@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package    Leytech_ProductDescription
+ * @author     Chris Nolan (chris@leytech.co.uk)
+ * @copyright  Copyright (c) 2018 Leytech
+ * @license    https://opensource.org/licenses/MIT  The MIT License  (MIT)
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <file>leytech/product_description/css/style.css</file>
+            </action>
+        </reference>
+        <!-- this creates a whole new block with our custom block type -->
+        <!--
+        <reference name="product.info">
+            <block type="leytech_product_description/catalog_product_view_description" name="product.description2" as="description2" template="leytech/product_description/description.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Description 2</value></action>
+            </block>
+        </reference>
+        -->
+        <!-- this just changes the template of the existing block -->
+        <!--
+        <reference name="product.description">
+            <action method="setTemplate">
+                <template>leytech/product_description/description.phtml</template>
+            </action>
+        </reference>
+        -->
+        <!-- this replaces the existing block with our new one -->
+        <reference name="product.info">
+            <block type="leytech_product_description/catalog_product_view_description" name="product.description" as="description" template="leytech/product_description/description.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Description</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout>

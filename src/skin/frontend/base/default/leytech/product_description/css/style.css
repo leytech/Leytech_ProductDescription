@@ -1,0 +1,188 @@
+/**
+ * @package    Leytech_ProductDescription
+ * @author     Chris Nolan (chris@leytech.co.uk)
+ * @copyright  Copyright (c) 2018 Leytech
+ * @license    https://opensource.org/licenses/MIT  The MIT License  (MIT)
+ */
+
+.lt-prod-desc-row {
+    position: relative;
+    clear: both;
+}
+
+.lt-prod-desc-row .lt-prod-2-img {
+    display: inline-block;
+}
+
+.lt-prod-desc-row .lt-prod-2-img img {
+    max-width: 50%;
+    height: auto;
+    float: left;
+}
+
+.lt-prod-desc-row .lt-prod-text {
+    position: absolute;
+}
+
+.lt-prod-desc-row p.lt-prod-subtitle {
+    line-height: 23px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.lt-prod-desc-row p.lt-prod-title {
+    line-height: 48px;
+    font-size: 34px;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-top {
+    top: 20px;
+    left: 15%;
+    text-align: center;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-top p {
+    position: relative;
+    left: -10%;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-bottom {
+    bottom: 20px;
+    left: 15%;
+    text-align: center;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-bottom p {
+    position: relative;
+    left: -10%;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-left {
+    left: 20px;
+    top: 35%;
+    text-align: left;
+    width: 50%;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-right {
+    right: 20px;
+    top: 35%;
+    text-align: right;
+    width: 50%;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-stack-top {
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+.lt-prod-desc-row .lt-prod-text.lt-prod-normal-stack-top p {
+    position: relative;
+    left: 0;
+}
+
+.lt-prod-desc-row .lt-prod-img{
+    /* https://voormedia.com/blog/2012/11/responsive-background-images-with-fixed-or-fluid-aspect-ratios */
+    width: 100%;
+    height: 210px;
+    padding-bottom: 39% ; /* % of width, defines aspect ratio*/
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .lt-prod-desc-row .lt-prod-2-img img {
+        max-width: 100%;
+        float: none;
+    }
+
+    .lt-prod-desc-row .lt-prod-img{
+        /* https://voormedia.com/blog/2012/11/responsive-background-images-with-fixed-or-fluid-aspect-ratios */
+        height: 210px;
+        padding-bottom: 130% ; /* % of width, defines aspect ratio*/
+    }
+
+    .lt-prod-desc-row .lt-prod-text.lt-prod-normal-left {
+        top: 15%;
+        width: 80%;
+    }
+    .lt-prod-desc-row .lt-prod-text.lt-prod-normal-right {
+        top: 15%;
+        width: 80%;
+    }
+
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-title {
+        line-height: 24px;
+        font-size: 18px;
+        padding: 0 5px;
+        display: inline-block;
+    }
+
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-subtitle {
+        line-height: 17px;
+        font-size: 12px;
+        padding: 0 5px;
+    }
+
+    .lt-prod-desc-row .lt-prod-text.lt-prod-mobile-stack-top {
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .lt-prod-desc-row .lt-prod-text.lt-prod-mobile-stack-top p {
+        position: relative;
+        left: 0;
+    }
+
+    .lt-prod-mobile-hide {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 640px) {
+    .lt-prod-desc-row .lt-prod-text.lt-prod-normal-left {
+        top: 25%;
+        width: 60%;
+    }
+    .lt-prod-desc-row .lt-prod-text.lt-prod-normal-right {
+        top: 25%;
+        width: 60%;
+    }
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-title {
+        line-height: 24px;
+        font-size: 18px;
+        padding: 0 5px;
+        display: inline-block;
+    }
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-subtitle {
+        line-height: 17px;
+        font-size: 12px;
+        padding: 0 5px;
+    }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 991px) {
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-title {
+        line-height: 30px;
+        font-size: 22px;
+        padding: 0 5px;
+        display: inline-block;
+    }
+    .lt-prod-desc-row .lt-prod-text p.lt-prod-subtitle {
+        line-height: 18px;
+        font-size: 14px;
+        padding: 0 5px;
+    }
+}
