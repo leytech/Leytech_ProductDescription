@@ -1,0 +1,5 @@
+src/app/code/community/Leytech/ProductDescription                               app/code/community/Leytech/ProductDescription
+src/app/design/frontend/base/default/layout/leytech/product_description.xml     app/design/frontend/base/default/layout/leytech/product_description.xml
+src/app/design/frontend/base/default/template/leytech/product_description       app/design/frontend/base/default/template/leytech/product_description
+src/app/etc/modules/Leytech_ProductDescription.xml                              app/etc/modules/Leytech_ProductDescription.xml
+src/skin/frontend/base/default/leytech/product_description                      skin/frontend/base/default/leytech/product_description
