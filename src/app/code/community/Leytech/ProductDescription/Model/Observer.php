@@ -15,6 +15,11 @@ class Leytech_ProductDescription_Model_Observer
      */
     public function updateExcludedFieldList(Varien_Event_Observer $observer)
     {
+        // Do nothing if option to remove fields has not been selected
+        if (!Mage::helper('leytech_product_description')->getRemoveFields()) {
+            return $this;
+        }
+
         $block = $observer->getEvent()->getObject();
         $list = $block->getFormExcludedFieldList();
 

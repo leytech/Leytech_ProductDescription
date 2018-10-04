@@ -62,4 +62,11 @@
             </updates>
         </layout>
     </frontend>
+    <default>
+        <leytech_product_description>
+            <settings>
+                <remove_fields>1</remove_fields>
+            </settings>
+        </leytech_product_description>
+    </default>
 </config>
